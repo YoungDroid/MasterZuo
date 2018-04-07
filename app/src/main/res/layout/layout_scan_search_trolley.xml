@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.oom.masterzuo.viewmodel.main.homepage.ScanSearchTrolleyViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdv_scan"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            fresco:placeholderImage="@mipmap/classification_icon_scan"
+            fresco:placeholderImageScaleType="fitCenter"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="46dp"
+            android:layout_toRightOf="@id/sdv_scan"
+            android:background="@drawable/rectangle_f6f6f6_20"
+            android:padding="10dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:focusableInTouchMode="false"
+                android:hint="商品名称、编号、条形码"
+                android:inputType="textEmailAddress"
+                android:lines="1"
+                android:paddingLeft="26dp"
+                android:paddingRight="10dp"
+                android:text="@{viewModel.content}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/login_register_hint"
+                android:textSize="12.8sp"/>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="14.4dp"
+                android:layout_height="14.4dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                fresco:placeholderImage="@mipmap/classification_icon_search"
+                fresco:placeholderImageScaleType="fitCenter"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                fresco:placeholderImage="@mipmap/classification_icon_shopping_cart"
+                fresco:placeholderImageScaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rectangle_fe161d_20"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:text="10+"
+                android:textColor="@color/white"
+                android:textSize="9sp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

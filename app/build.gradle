@@ -1,0 +1,188 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'me.tatarka.retrolambda'
+
+def SupportVersion = '25.3.1'
+def FrescoVersion = '1.5.0'
+def DaggerVersion = '2.11'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+//    signingConfigs {
+//        release {
+//            keyAlias 'pentaq'
+//            keyPassword 'pentaQ'
+//            storeFile file('../PentaQ_key.jks')
+//            storePassword 'pentaQ'
+//        }
+//    }
+
+    defaultConfig {
+        applicationId "com.oom.masterzuo"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 26
+        versionName "1.0.0.20180402"
+//        signingConfig signingConfigs.release
+
+        //参数说明
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "o8BT4KGXr56RKk6BM5eKk9",
+                GETUI_APP_KEY   : "laprnrsGio62VZxysmRimA",
+                GETUI_APP_SECRET: "9GoXf8Vyp78JSJyGFpAB38",
+                PACKAGE_NAME    : applicationId
+        ]
+
+        // dex突破65535的限制
+        multiDexEnabled true
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            // 混淆
+            minifyEnabled false
+            // 优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+//            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // 混淆
+            minifyEnabled false
+            // 优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+//            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    lintOptions { abortOnError true }
+
+    dataBinding {
+        enabled = true
+    }
+
+    //use legacy for android 6.0
+    //useLibrary 'org.apache.http.legacy'
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'   // aar目录
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Support 系统兼容库
+    compile "com.android.support:design:$SupportVersion"
+    compile "com.android.support:cardview-v7:$SupportVersion"
+
+    // Activity & Fragment 解析框架
+    annotationProcessor "org.androidannotations:androidannotations:4.1.0"
+    compile 'org.androidannotations:androidannotations-api:4.1.0'
+
+    // Gson 数据解析
+    compile 'com.google.code.gson:gson:2.8.0'
+
+    // Ptr 下拉刷新
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
+
+    // Fresco 图片加载
+    compile "com.facebook.fresco:fresco:$FrescoVersion"
+
+    // 支持 WebP （静态图+动图），需要添加
+    compile "com.facebook.fresco:animated-webp:$FrescoVersion"
+    compile "com.facebook.fresco:webpsupport:$FrescoVersion"
+
+    // NineOldAnimation 动画兼容
+    compile 'com.nineoldandroids:library:2.4.0'
+
+    // MultiStateView 界面状态显示处理库
+    compile 'com.github.Kennyc1012:MultiStateView:1.2.0'
+
+    // EventBus 线程通信~
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    // rxPreferences
+    compile 'com.f2prateek.rx.preferences:rx-preferences:1.0.2'
+
+    // Retrofit 网络请求模块
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    // 突破64K
+    compile 'com.android.support:multidex:1.0.1'
+
+    // RecyclerViewPager RecyclerView仿ViewPager
+    compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.0'
+    compile 'com.github.lsjwzh.RecyclerViewPager:tablayoutsupport:v1.1.0'
+
+    // Cupboard 持久化数据库工具
+    compile 'nl.qbusict:cupboard:2.1.4'
+
+    // FloatingActionButton 浮动按钮
+    compile 'com.melnykov:floatingactionbutton:1.3.0'
+
+    // 图片加载库
+    compile 'cn.finalteam.rxgalleryfinal:library:1.0.3'
+
+    // PhotoView
+    compile 'com.github.chrisbanes:PhotoView:2.0.0'
+
+    // RecyclerView 侧滑菜单
+    compile 'com.yanzhenjie:recyclerview-swipe:1.0.4'
+    compile 'com.github.franmontiel:PersistentCookieJar:v1.0.0'
+    compile 'com.iarcuschin:simpleratingbar:0.1.3'
+    compile(name: 'bindingcollectionadapter-recyclerview-release', ext: 'aar')
+    compile(name: 'bindingcollectionadapter-release', ext: 'aar')
+
+    compile 'io.reactivex:rxjava:1.2.1'
+    compile 'io.reactivex:rxandroid:1.2.1'
+
+    compile 'com.zhy:okhttputils:2.6.2'
+
+    compile 'com.alibaba:fastjson:1.2.17'
+    compile 'com.apkfuns.logutils:library:1.4.2'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.1@aar'
+
+    compile 'com.github.bumptech.glide:glide:4.1.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
+
+    compile 'cn.finalteam:okhttpfinal:2.0.7'
+    compile 'com.mikhaellopez:circularimageview:3.0.2'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
+}

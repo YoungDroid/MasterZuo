@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 连框颜色值 -->
+    <item>
+        <shape>
+            <solid android:color="#E8E8E8"/>
+        </shape>
+    </item>
+    <!-- 主体背景颜色值 -->
+    <item
+        android:bottom="1dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp">
+        <shape>
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+</layer-list>
+    <!--&lt;!&ndash; 填充颜色 &ndash;&gt;-->
+    <!--<solid android:color="@color/transparent" />-->
+
+    <!--&lt;!&ndash; 大小 &ndash;&gt;-->
+    <!--<size-->
+    <!--android:width="10dp"-->
+    <!--android:height="10dp" />-->
+
+    <!--&lt;!&ndash; 线的宽度，颜色灰色 &ndash;&gt;-->
+    <!--<stroke-->
+    <!--android:width="0.5dp"-->
+    <!--android:color="@color/dark_gray" />-->
+
+    <!--&lt;!&ndash; 矩形的圆角半径 &ndash;&gt;-->
+    <!--<corners android:radius="3dp" />-->

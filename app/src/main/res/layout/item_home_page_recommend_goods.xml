@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.support.v7.widget.LinearLayoutManager"/>
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+
+        <variable
+            name="viewModel"
+            type="com.oom.masterzuo.viewmodel.main.homepage.RecommendGoodsItemViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="124.8dp"
+        android:orientation="horizontal"
+        bind:clickCommand="@{viewModel.onItemClick}">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#aa22ff00"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="这是推荐商品"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

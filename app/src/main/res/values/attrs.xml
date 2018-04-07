@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlexibleRatingBar">
+        <attr name="colorOutlineOn" format="color"/>
+        <attr name="colorOutlineOff" format="color"/>
+        <attr name="colorOutlinePressed" format="color"/>
+        <attr name="colorFillOn" format="color"/>
+        <attr name="colorFillOff" format="color"/>
+        <attr name="colorFillPressedOn" format="color"/>
+        <attr name="colorFillPressedOff" format="color"/>
+        <attr name="polygonVertices" format="integer"/>
+        <attr name="polygonRotation" format="integer"/>
+        <attr name="strokeWidth" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="UniversalMediaController">
+        <attr name="uvv_scalable" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="UniversalVideoView">
+        <attr name="uvv_fitXY" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="StrokeTextView">
+        <attr name="StrokeTextView_strokeWidth" format="dimension"/>
+        <attr name="StrokeTextView_strokeColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="Indicator">
+        <attr name="indicator_count" format="integer"/>
+        <attr name="indicator_itemSize" format="dimension"/>
+        <attr name="indicator_itemSelectedSize" format="dimension"/>
+        <attr name="indicator_itemAlpha" format="float"/>
+        <attr name="indicator_itemSelectedAlpha" format="float"/>
+        <attr name="indicator_radius" format="dimension"/>
+        <attr name="indicator_selectedRadius" format="dimension"/>
+        <attr name="indicator_interval" format="dimension"/>
+        <attr name="indicator_strokeWidth" format="dimension"/>
+        <attr name="indicator_normalColor" format="color"/>
+        <attr name="indicator_selectedColor" format="color"/>
+        <attr name="indicator_textSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="LinePoint">
+        <attr name="progress_count" format="integer"/>
+        <attr name="progress_radius" format="dimension"/>
+        <attr name="progress_strokeWidth" format="dimension"/>
+        <attr name="progress_normalColor" format="color"/>
+        <attr name="progress_normalLoadingColor" format="color"/>
+        <attr name="progress_fullColor" format="color"/>
+        <attr name="progress_coverColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="Follow">
+        <attr name="target" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="PullToZoomView">
+        <attr name="headerView" format="reference"/>
+        <attr name="contentView" format="reference"/>
+        <attr name="zoomView" format="reference"/>
+        <attr name="isHeaderParallax" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="TabLayout">
+        <attr name="tab_z_index" format="integer"/>
+        <attr name="tab_x_index" format="integer"/>
+        <attr name="tab_top_drawable" format="reference|color"/>
+        <attr name="tab_mid_drawable" format="reference|color"/>
+        <attr name="tab_bottom_drawable" format="reference|color"/>
+    </declare-styleable>
+
+    <declare-styleable name="RadioLayout">
+        <attr name="radio_selected" format="boolean"/>
+        <attr name="radio_normal_drawable" format="reference|color"/>
+        <attr name="radio_selected_drawable" format="reference|color"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="round_border" format="reference|color"/>
+        <attr name="round_mask" format="reference|color"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyTitleBar">
+        <attr name="title" format="string"/>
+        <attr name="left_icon" format="reference"/>
+        <attr name="divider_color" format="color"/>
+        <attr name="left_text" format="string"/>
+        <attr name="show_shadow" format="boolean"/>
+    </declare-styleable>
+
+</resources>

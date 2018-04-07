@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.oom.masterzuo.viewmodel.main.membercenter.LoginViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdv_login_bg_top"
+            android:layout_width="103.2dp"
+            android:layout_height="96.6dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            fresco:placeholderImage="@mipmap/bg_login_activity_top"
+            fresco:placeholderImageScaleType="fitCenter"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/bg_login_activity_bottom"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sdv_login_bg_top"
+            android:layout_marginLeft="19.2dp"
+            android:layout_marginRight="19.2dp"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@drawable/rectangle_login_edit"
+                android:paddingBottom="12dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入用户名"
+                    android:inputType="textEmailAddress"
+                    android:lines="1"
+                    android:paddingLeft="34.4dp"
+                    android:paddingRight="10dp"
+                    android:text="@{viewModel.username}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/login_register_hint"
+                    android:textSize="18sp"
+                    bind:afterTextChangedCommand="@{viewModel.onUsernameChange}"/>
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_width="14.4dp"
+                    android:layout_height="14.4dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="3dp"
+                    android:clickable="true"
+                    bind:clickCommand="@{viewModel.onClearUserName}"
+                    fresco:placeholderImage="@mipmap/icon_login_activity_user"
+                    fresco:placeholderImageScaleType="fitCenter"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rectangle_login_edit"
+                android:paddingBottom="12dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="密码"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:maxEms="28"
+                    android:paddingLeft="34.4dp"
+                    android:paddingRight="10dp"
+                    android:text="@{viewModel.password}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/login_register_hint"
+                    android:textSize="18sp"
+                    bind:afterTextChangedCommand="@{viewModel.onPasswordChange}"/>
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_width="14.4dp"
+                    android:layout_height="14.4dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="3dp"
+                    android:clickable="true"
+                    bind:clickCommand="@{viewModel.onClearPassword}"
+                    fresco:placeholderImage="@mipmap/icon_login_activity_password"
+                    fresco:placeholderImageScaleType="fitCenter"/>
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/selector_login_register_button"
+                android:enabled="@{viewModel.usernameComplete &amp;&amp; viewModel.passwordComplete, default = false}"
+                android:padding="13dp"
+                android:text="登录"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                bind:clickCommand="@{viewModel.onLogin}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:clickable="true"
+                android:paddingRight="6dp"
+                android:paddingTop="18dp"
+                android:text="忘记密码?"
+                android:textColor="@color/reset_password_gray"
+                android:textSize="15.36sp"
+                bind:clickCommand="@{viewModel.onResetPassword}"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

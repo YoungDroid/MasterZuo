@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:RadioLayout="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.oom.masterzuo.viewmodel.main.MainViewModel"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:id="@+id/menu_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.001dp"
+                android:background="#999999"/>
+
+            <com.oom.masterzuo.widget.radioLayout.RadioLayout
+                android:layout_width="match_parent"
+                android:layout_height="45.6dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="6.6dp"
+                bind:autoCheck="@{viewModel.autoCheck}"
+                bind:onCheckedChange="@{viewModel.onItemChecked}">
+
+                <com.oom.masterzuo.widget.radioLayout.RadioView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    RadioLayout:radio_normal_drawable="@mipmap/tab_home_icon_normal"
+                    RadioLayout:radio_selected="false"
+                    RadioLayout:radio_selected_drawable="@mipmap/tab_home_icon_selected"/>
+
+                <com.oom.masterzuo.widget.radioLayout.RadioView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    RadioLayout:radio_normal_drawable="@mipmap/tab_commodity_icon_normal"
+                    RadioLayout:radio_selected="false"
+                    RadioLayout:radio_selected_drawable="@mipmap/tab_commodity_icon_selected"/>
+
+                <com.oom.masterzuo.widget.radioLayout.RadioView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    RadioLayout:radio_normal_drawable="@mipmap/tab_shopping_cart_icon_normal"
+                    RadioLayout:radio_selected="false"
+                    RadioLayout:radio_selected_drawable="@mipmap/tab_shopping_cart_icon_selected"/>
+
+                <com.oom.masterzuo.widget.radioLayout.RadioView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    RadioLayout:radio_normal_drawable="@mipmap/tab_me_icon_normal"
+                    RadioLayout:radio_selected="false"
+                    RadioLayout:radio_selected_drawable="@mipmap/tab_me_icon_selected"/>
+            </com.oom.masterzuo.widget.radioLayout.RadioLayout>
+        </LinearLayout>
+
+        <com.oom.masterzuo.widget.specialscrollview.SpecialNoScrollViewPager
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/menu_bottom"
+            bind:itemView="@{viewModel.itemView}"
+            bind:items="@{viewModel.viewModels}"
+            bind:scroll2Position="@{viewModel.scrollPosition}"/>
+    </RelativeLayout>
+</layout>

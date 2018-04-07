@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+
+        <import type="android.support.v7.widget.LinearLayoutManager"/>
+
+        <variable
+            name="viewModel"
+            type="com.oom.masterzuo.viewmodel.main.HomePageViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_toolbar"
+            bind:viewModel="@{viewModel.toolbar}"/>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:autoComplete="@{1200}"
+            bind:refresh="@{viewModel.onRefresh}">
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/nsv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="124.8dp">
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/vp_match_home_squad"
+                            android:layout_width="match_parent"
+                            android:layout_height="124.8dp"
+                            bind:itemView="@{viewModel.itemView}"
+                            bind:items="@{viewModel.viewModels}"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="26.4dp"
+                            android:layout_alignParentBottom="true">
+
+                            <com.oom.masterzuo.widget.indicator.BezierIndicator
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                bind:indicator_count="5"
+                                bind:indicator_interval="6dp"
+                                bind:indicator_normalColor="#e7e7e7"
+                                bind:indicator_radius="3dp"
+                                bind:indicator_selectedColor="#00647d"
+                                bind:viewPager="@{vpMatchHomeSquad}"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <include
+                        layout="@layout/layout_home_page_model_header"
+                        bind:viewModel="@{viewModel.goodsClassify}"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                bind:clickCommandParam="@{viewModel.onClick}"
+                                bind:params="@{0}"
+                                fresco:placeholderImage="@mipmap/home_btn_tyre"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                fresco:placeholderImage="@mipmap/home_btn_engine_oil"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                fresco:placeholderImage="@mipmap/home_btn_alternator"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                fresco:placeholderImage="@mipmap/home_btn_engine"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                fresco:placeholderImage="@mipmap/home_btn_water_pump"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                fresco:placeholderImage="@mipmap/home_btn_garden_machinery"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                fresco:placeholderImage="@mipmap/home_btn_micro_farming"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:layout_width="0dp"
+                                android:layout_height="72dp"
+                                android:layout_weight="1"
+                                fresco:placeholderImage="@mipmap/home_btn_classification"
+                                fresco:placeholderImageScaleType="fitCenter"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#F6F6F6"/>
+
+                    <include
+                        layout="@layout/layout_home_page_model_header"
+                        bind:viewModel="@{viewModel.goodsRecommend}"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:itemView="@{viewModel.newGoodsRecommendItemView}"
+                        bind:items="@{viewModel.newGoodsRecommendViewModels}"
+                        bind:layoutManager="@{LayoutManagers.linear(LinearLayoutManager.HORIZONTAL, false)}"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#F6F6F6"/>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

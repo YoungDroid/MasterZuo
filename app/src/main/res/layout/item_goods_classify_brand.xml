@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.support.v7.widget.LinearLayoutManager"/>
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+
+        <variable
+            name="viewModel"
+            type="com.oom.masterzuo.viewmodel.main.homepage.BrandItemViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="90dp"
+        android:layout_height="51.6dp"
+        android:orientation="horizontal"
+        bind:clickCommand="@{viewModel.onSelect}">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@{viewModel.brandName}"
+            android:textColor="@{viewModel.isSelected?@color/red:@color/black,default=@color/black}"
+            android:textSize="15.36sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_alignParentBottom="true"
+            android:background="#E6E6E6"/>
+    </RelativeLayout>
+</layout>

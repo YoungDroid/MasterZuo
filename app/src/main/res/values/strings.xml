@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">左师傅</string>
+    <string name="content_empty">暂无内容</string>
+    <string name="content_loading">正在努力加载中&#8230;</string>
+    <string name="cube_views_load_more_loading">加载中&#8230;</string>
+    <string name="cube_views_load_more_click_to_load_more">点击加载更多</string>
+    <string name="cube_views_load_more_loaded_no_more">数据加载完成</string>
+    <string name="cube_views_load_more_loaded_empty">暂无更多数据</string>
+    <string name="cube_views_load_more_error">加载失败,点击加载更多</string>
+
+    <string name="description">Media Controls</string>
+
+    <string name="some_words_long">TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!TestWords, 测试文字!</string>
+    <string name="some_words_short">TestWords, 测试文字!</string>
+
+    <string name="register">注册</string>
+    <string name="login">登录</string>
+    <string name="take_photo">拍照</string>
+    <string name="get_photo">从手机相册选取</string>
+    <string name="pick_avatar_default">选取头像（默认）</string>
+    <string name="register_info">TestWords, 测试文字!</string>
+
+    <string name="register_next">下一步</string>
+
+    <!--      Fonts Name      -->
+    <string name="FuturaCondensedMedium">Futura Condensed Medium</string>
+    <string name="my_invite_code_copy">复制</string>
+    <string name="my_invite_code_next_code">下一个</string>
+
+    <!--    Setting  -->
+    <string name="setting_edit_user_info">编辑个人信息</string>
+    <string name="setting_push">推送</string>
+    <string name="network_time_out_message_text">请求超时</string>
+    <string name="parse_error_message">数据解析错误！</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+</resources>

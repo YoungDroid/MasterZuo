@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+
+        <import type="android.support.v7.widget.LinearLayoutManager"/>
+
+        <variable
+            name="viewModel"
+            type="com.oom.masterzuo.viewmodel.main.homepage.GoodsClassifyViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F6F6F6"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_toolbar"
+            bind:viewModel="@{viewModel.toolbar}"/>
+
+        <include
+            layout="@layout/layout_scan_search_trolley"
+            bind:viewModel="@{viewModel.scanSearchTrolley}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_goods_classify_brand"
+                android:scrollbars="none">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    bind:itemView="@{viewModel.brandItemView}"
+                    bind:items="@{viewModel.brandViewModels}"
+                    bind:layoutManager="@{LayoutManagers.linear(true)}"
+                    bind:nestedScroll="@{false}"/>
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:scrollbars="none">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    bind:itemView="@{viewModel.brandDetailItemView}"
+                    bind:items="@{viewModel.brandDetailViewModels}"
+                    bind:nestedScroll="@{false}"
+                    bind:layoutManager="@{LayoutManagers.grid(3)}"/>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
